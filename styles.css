@@ -264,9 +264,27 @@ nav { row-gap: .4rem; }
 .contact-grid dt { font-weight: 600; }
 .awards-grid { --card-width: min(78%, 330px); }
 .awards-grid figure { flex-basis: var(--card-width); }
-.awards-grid::after { content: ""; flex: 0 0 max(0px, calc(100% - var(--card-width) - 20px)); }
+
 @media (max-width: 600px) {
   .photos { gap: 12px; }
   .photos figcaption { font-size: .94rem; }
   .contact-grid { grid-template-columns: 1fr; }
+}
+/* Shared spacing and photo treatments */
+.hero { border-radius: 22px 22px 70px 22px; box-shadow: 0 12px 36px #203c3017; }
+.hero img { align-self: stretch; }
+.hero .intro { padding-block: clamp(42px, 6vw, 88px); }
+.gallery, .contacts { padding-block: clamp(40px, 6vw, 78px); }
+.gallery h2, .contacts h2, .awards h2 { letter-spacing: -.045em; }
+.leadership { border-radius: 24px; }
+.contact-grid article { border-radius: 0 0 16px 16px; }
+.awards-grid { scroll-snap-type: none; scrollbar-width: none; overscroll-behavior-x: contain; }
+.awards-grid::-webkit-scrollbar { display: none; }
+.awards-grid figure { box-shadow: 0 6px 14px #203c300d; }
+.awards-grid figure a:focus-visible { outline: 3px solid #ae831d; outline-offset: -4px; }
+.award-controls button:hover, .award-controls button:focus-visible { background: #183d31; color: white; }
+@media (min-width: 800px) {
+  .awards { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
+  .awards h2, .award-controls { margin: 0; }
+  .awards-grid { grid-column: 1 / -1; min-width: 0; }
 }
